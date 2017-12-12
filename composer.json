@@ -1,0 +1,10 @@
+{
+ "autoload": {
+  "psr-4": {
+   "Mzentrale\\AdventOfCode\\": "src/"
+  }
+ },
+ "require-dev": {
+  "phpspec/phpspec": "^2.5"
+ }
+}
