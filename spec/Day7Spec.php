@@ -12,6 +12,12 @@ class Day7Spec extends ObjectBehavior
         $this->shouldImplement(Puzzle::class);
     }
 
+    function it_should_parse_lines()
+    {
+        $this->parse('tknk (41) -> ugml, padx, fwft')->shouldReturn(['tknk', ['ugml', 'padx', 'fwft']]);
+        $this->parse('pbga (66)')->shouldReturn(['pbga', []]);
+    }
+
     function it_should_solve_the_problem()
     {
         $this->solve("pbga (66)
