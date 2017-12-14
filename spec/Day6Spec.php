@@ -31,4 +31,16 @@ class Day6Spec extends ObjectBehavior
     {
         $this->debug([0, 2, 7, 0])->shouldReturn(5);
     }
+
+    function it_should_calculate_loop_size()
+    {
+        $this->getLoopSize([0, 2, 7, 0])->shouldReturn(4);
+    }
+
+    public function it_should_solve_the_puzzle()
+    {
+        $input = file_get_contents(dirname(__DIR__) . '/input/day6.txt');
+        $this->part1($input)->shouldReturn(11137);
+        $this->part2($input)->shouldReturn(1037);
+    }
 }

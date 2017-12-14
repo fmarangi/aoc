@@ -4,6 +4,16 @@ namespace Mzentrale\AdventOfCode;
 
 class Day6 implements Puzzle
 {
+    public function part1(string $input)
+    {
+        return $this->debug(preg_split('#\s+#', trim($input)));
+    }
+
+    public function part2(string $input)
+    {
+        return $this->getLoopSize(preg_split('#\s+#', trim($input)));
+    }
+
     public function solve($input)
     {
         return $this->debug(preg_split('#\s+#', trim($input)));
@@ -29,22 +39,31 @@ class Day6 implements Puzzle
         return array_search(max($blocks), $blocks);
     }
 
-    public function debug(array $blocks)
+    public function debug(array $blocks): int
     {
-        $c = [$this->hash($blocks) => true];
+        return $this->getLoopDetails($blocks)[0];
+    }
 
-        $i = 1;
-        for ($blocks = $this->next($blocks), $hash = $this->hash($blocks); !array_key_exists($hash, $c); $i++) {
-            $c[$hash] = true;
-            $blocks   = $this->next($blocks);
-            $hash     = $this->hash($blocks);
-        }
-
-        return $i;
+    public function getLoopSize(array $blocks): int
+    {
+        return $this->getLoopDetails($blocks)[1];
     }
 
     private function hash(array $blocks): string
     {
         return md5(implode(' ', $blocks));
+    }
+
+    private function getLoopDetails(array $blocks): array
+    {
+        $i = 1;
+        $c = [$this->hash($blocks) => $i];
+        for ($blocks = $this->next($blocks), $hash = $this->hash($blocks); !array_key_exists($hash, $c); $i++) {
+            $c[$hash] = $i;
+            $blocks   = $this->next($blocks);
+            $hash     = $this->hash($blocks);
+        }
+
+        return [$i, $i - $c[$hash]];
     }
 }
