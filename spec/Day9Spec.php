@@ -48,4 +48,22 @@ class Day9Spec extends ObjectBehavior
         $this->calculateScore('{{<!!>},{<!!>},{<!!>},{<!!>}}')->shouldReturn(9);
         $this->calculateScore('{{<a!>},{<a!>},{<a!>},{<ab>}}')->shouldReturn(3);
     }
+
+    function it_should_count_the_garbage()
+    {
+        $this->countGarbage('<>')->shouldReturn(0);
+        $this->countGarbage('<random characters>')->shouldReturn(17);
+        $this->countGarbage('<<<<>')->shouldReturn(3);
+        $this->countGarbage('<{!>}>')->shouldReturn(2);
+        $this->countGarbage('<!!>')->shouldReturn(0);
+        $this->countGarbage('<!!!>>')->shouldReturn(0);
+        $this->countGarbage('<{o"i!a,<{i<a>')->shouldReturn(10);
+    }
+
+    public function it_should_solve_the_puzzle()
+    {
+        $input = file_get_contents(dirname(__DIR__) . '/input/day9.txt');
+        $this->part1($input)->shouldReturn(11347);
+        $this->part2($input)->shouldReturn(5404);
+    }
 }

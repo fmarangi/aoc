@@ -4,14 +4,19 @@ namespace Mzentrale\AdventOfCode;
 
 class Day9 implements Puzzle
 {
-    public function solve($input)
+    public function part1(string $input)
     {
         return $this->calculateScore($input);
     }
 
-    public function removeGarbage(string $stream)
+    public function part2(string $input)
     {
-        return preg_replace('#(<[^>]*>)#', '', preg_replace('#(!.)#', '', $stream));
+        return $this->countGarbage(trim($input));
+    }
+
+    public function removeGarbage(string $stream, bool $includeEnclosures = true)
+    {
+        return preg_replace('#<([^>]*)>#', $includeEnclosures ? '' : '<>', $this->removeCancelled($stream));
     }
 
     public function countGroups(string $stream): int
@@ -25,6 +30,11 @@ class Day9 implements Puzzle
         return array_sum(array_map(function ($level, $count) {
             return $level * $count;
         }, array_keys($groups), array_values($groups)));
+    }
+
+    public function countGarbage(string $stream): int
+    {
+        return strlen($this->removeCancelled($stream)) - strlen($this->removeGarbage($stream, false));
     }
 
     private function getGroups(string $stream): array
@@ -44,5 +54,10 @@ class Day9 implements Puzzle
             }
         }
         return $groups;
+    }
+
+    private function removeCancelled(string $stream): string
+    {
+        return preg_replace('#(!.)#', '', $stream);
     }
 }
