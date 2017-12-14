@@ -23,8 +23,20 @@ class Day5Spec extends ObjectBehavior
         $this->splitCommands($this->commands)->shouldReturn([0, 3, 0, 1, -3]);
     }
 
-    function it_should_calculate_needed_steps()
+    function it_should_calculate_needed_steps_for_first_part()
     {
-        $this->exit([0, 3, 0, 1, -3])->shouldReturn(5);
+        $this->exit1([0, 3, 0, 1, -3])->shouldReturn(5);
+    }
+
+    function it_should_calculate_needed_steps_for_second_part()
+    {
+        $this->exit2([0, 3, 0, 1, -3])->shouldReturn(10);
+    }
+
+    public function it_should_solve_the_puzzle()
+    {
+        $input = file_get_contents(dirname(__DIR__) . '/input/day5.txt');
+        $this->part1($input)->shouldReturn(388611);
+        $this->part2($input)->shouldReturn(27763113);
     }
 }
