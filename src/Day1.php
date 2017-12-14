@@ -4,17 +4,27 @@ namespace Mzentrale\AdventOfCode;
 
 class Day1 implements Puzzle
 {
-    public function captcha($code)
+    public function part1(string $input)
     {
-        $chars    = str_split(trim($code));
+        return $this->captcha(trim($input));
+    }
+
+    public function part2(string $input)
+    {
+        return $this->captchaHalf(trim($input));
+    }
+
+    public function captcha($code, int $compareWith = 1)
+    {
+        $chars    = str_split($code);
         $numChars = count($chars);
-        return array_sum(array_filter($chars, function ($position) use ($chars, $numChars) {
-            return $chars[$position] === $chars[($position + 1) % $numChars];
+        return array_sum(array_filter($chars, function ($position) use ($chars, $numChars, $compareWith) {
+            return $chars[$position] === $chars[($position + $compareWith) % $numChars];
         }, ARRAY_FILTER_USE_KEY));
     }
 
-    public function solve($input)
+    public function captchaHalf($code)
     {
-        return $this->captcha($input);
+        return $this->captcha($code, strlen($code) / 2);
     }
 }
