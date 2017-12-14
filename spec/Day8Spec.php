@@ -26,8 +26,20 @@ INPUT;
         }
     }
 
-    function it_should_solve_the_puzzle()
+    function it_should_find_the_max_value_after_the_process()
     {
-        $this->solve($this->input)->shouldReturn(1);
+        $this->findMaxAfter($this->input)->shouldReturn(1);
+    }
+
+    function it_should_find_the_max_value_during_the_process()
+    {
+        $this->findMaxDuring($this->input)->shouldReturn(10);
+    }
+
+    public function it_should_solve_the_puzzle()
+    {
+        $input = file_get_contents(dirname(__DIR__) . '/input/day8.txt');
+        $this->part1($input)->shouldReturn(5215);
+        $this->part2($input)->shouldReturn(6419);
     }
 }
