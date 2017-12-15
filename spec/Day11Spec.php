@@ -24,7 +24,6 @@ class Day11Spec extends ObjectBehavior
 
     function it_should_solve_the_puzzle()
     {
-
         $input = trim(file_get_contents(dirname(__DIR__) . '/input/day11.txt'));
         $this->part1($input)->shouldReturn(794);
         $this->part2($input)->shouldReturn(1524);
