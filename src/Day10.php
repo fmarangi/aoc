@@ -28,9 +28,8 @@ class Day10 implements Puzzle
 
     public function apply(array $list, int $position, int $length): array
     {
-        $count   = count($list);
         $sublist = [];
-        for ($i = 0; $i < $length; $i++) {
+        for ($i = 0, $count = count($list); $i < $length; $i++) {
             $sublist[] = $list[($i + $position) % $count];
         }
 
