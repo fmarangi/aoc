@@ -24,7 +24,6 @@ class Day14 implements Puzzle
     public function getUsedSquares(string $key): int
     {
         $grid = implode(PHP_EOL, $this->getGrid($key));
-        file_put_contents('grid.txt', $grid);
         return strlen($grid) - strlen(str_replace('1', '', $grid));
     }
 
@@ -39,10 +38,6 @@ class Day14 implements Puzzle
             $grid = $this->clearRegion($one, $grid);
             $regions++;
         }
-
-        file_put_contents('zero.txt', implode(PHP_EOL, array_map(function ($row) {
-            return implode('', $row);
-        }, $grid)));
 
         return $regions;
     }
