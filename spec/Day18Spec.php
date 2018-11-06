@@ -18,6 +18,14 @@ jgz a -1
 set a 1
 jgz a -2';
 
+    private $parallel = 'snd 1
+snd 2
+snd p
+rcv a
+rcv b
+rcv c
+rcv d';
+
     function it_is_a_puzzle()
     {
         $this->shouldImplement(Puzzle::class);
@@ -28,9 +36,15 @@ jgz a -2';
         $this->getRecoveredFrequency($this->input)->shouldReturn(4);
     }
 
+    public function it_should_run_parallel_programs()
+    {
+        $this->runPrograms($this->parallel)->shouldReturn(3);
+    }
+
     public function it_should_solve_the_puzzle()
     {
         $input = file_get_contents(dirname(__DIR__) . '/input/day18.txt');
         $this->part1($input)->shouldReturn(3423);
+        $this->part2($input)->shouldReturn(7493);
     }
 }

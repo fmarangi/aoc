@@ -1,10 +1,13 @@
 {
- "autoload": {
-  "psr-4": {
-   "Mzentrale\\AdventOfCode\\": "src/"
+  "autoload": {
+    "psr-4": {
+      "Mzentrale\\AdventOfCode\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^5.1"
+  },
+  "scripts": {
+    "phpspec": "phpspec run --format=pretty --"
   }
- },
- "require-dev": {
-  "phpspec/phpspec": "^2.5"
- }
 }
