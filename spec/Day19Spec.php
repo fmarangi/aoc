@@ -2,10 +2,8 @@
 
 namespace spec\Mzentrale\AdventOfCode;
 
-use Mzentrale\AdventOfCode\Day19;
 use Mzentrale\AdventOfCode\Puzzle;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class Day19Spec extends ObjectBehavior
 {
