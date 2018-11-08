@@ -54,7 +54,7 @@ class Day8 implements Puzzle
                 function ($registers) use ($ref, $condition, $conditionQty) {
                     $left = $registers[$ref] ?? 0;
                     return eval("return {$left} $condition $conditionQty;");
-                }
+                },
             ];
         }
         return [];
