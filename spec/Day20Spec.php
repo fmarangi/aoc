@@ -28,7 +28,7 @@ p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>';
 
     function it_should_solve_the_puzzle()
     {
-        $input = file_get_contents(dirname(__DIR__) . '/input/day20.txt');
+        $input = file_get_contents(dirname(__DIR__) . '/input/year2017/day20.txt');
         $this->part1($input)->shouldReturn(308);
         $this->part2($input)->shouldReturn(504);
     }

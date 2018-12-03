@@ -34,7 +34,7 @@ class Day22Spec extends ObjectBehavior
 
     function it_solves_the_puzzle()
     {
-        $input = file_get_contents(dirname(__DIR__) . '/input/day22.txt');
+        $input = file_get_contents(dirname(__DIR__) . '/input/year2017/day22.txt');
         $this->part1($input)->shouldReturn(5196);
         $this->part2($input)->shouldReturn(2511633);
     }

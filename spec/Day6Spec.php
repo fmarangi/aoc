@@ -39,7 +39,7 @@ class Day6Spec extends ObjectBehavior
 
     public function it_should_solve_the_puzzle()
     {
-        $input = file_get_contents(dirname(__DIR__) . '/input/day6.txt');
+        $input = file_get_contents(dirname(__DIR__) . '/input/year2017/day6.txt');
         $this->part1($input)->shouldReturn(11137);
         $this->part2($input)->shouldReturn(1037);
     }

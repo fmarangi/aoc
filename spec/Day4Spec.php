@@ -37,7 +37,7 @@ aa bb cc dd aaa")->shouldReturn(2);
 
     public function it_should_solve_the_puzzle()
     {
-        $input = file_get_contents(dirname(__DIR__) . '/input/day4.txt');
+        $input = file_get_contents(dirname(__DIR__) . '/input/year2017/day4.txt');
         $this->part1($input)->shouldReturn(455);
         $this->part2($input)->shouldReturn(186);
     }

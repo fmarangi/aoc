@@ -52,7 +52,7 @@ In state B:
 
     function it_solves_the_puzzle()
     {
-        $input = file_get_contents(dirname(__DIR__) . '/input/day25.txt');
+        $input = file_get_contents(dirname(__DIR__) . '/input/year2017/day25.txt');
         $this->part1($input)->shouldReturn(3145);
     }
 }
