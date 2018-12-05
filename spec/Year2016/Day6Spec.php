@@ -40,5 +40,4 @@ enarar';
         $this->part1($input)->shouldReturn('ygjzvzib');
         $this->part2($input)->shouldReturn('pdesmnoz');
     }
-
 }
