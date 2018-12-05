@@ -31,6 +31,6 @@ class Day5Spec extends ObjectBehavior
 
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2018/day5.txt');
         $this->part1($input)->shouldReturn(10180);
-        $this->part2($input)->shouldReturn(10180);
+        $this->part2($input)->shouldReturn(5668);
     }
 }

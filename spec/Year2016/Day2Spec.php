@@ -5,7 +5,6 @@ namespace spec\Mzentrale\AdventOfCode\Year2016;
 use Mzentrale\AdventOfCode\Puzzle;
 use Mzentrale\AdventOfCode\Year2016\Day2;
 use PhpSpec\ObjectBehavior;
-use spec\Mzentrale\AdventOfCode\Year2017\Year2017\Day7Spec;
 
 class Day2Spec extends ObjectBehavior
 {
