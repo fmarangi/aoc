@@ -1,11 +1,14 @@
 {
+  "require": {
+    "ext-json": "^1.5"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^5.1"
+  },
   "autoload": {
     "psr-4": {
       "Mzentrale\\AdventOfCode\\": "src/"
     }
-  },
-  "require-dev": {
-    "phpspec/phpspec": "^5.1"
   },
   "scripts": {
     "phpspec": "phpspec run --format=pretty --"
