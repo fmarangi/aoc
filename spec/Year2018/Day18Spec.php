@@ -33,5 +33,4 @@ class Day18Spec extends ObjectBehavior
         $this->part1($input)->shouldReturn(506385);
         $this->part2($input)->shouldReturn(215404);
     }
-
 }
