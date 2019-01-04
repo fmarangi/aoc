@@ -9,13 +9,13 @@ class Day8 implements Puzzle
 {
     public function part1(string $input)
     {
-        $tree = new Node(explode(' ', trim($input)));
+        $tree = new Node(trim($input));
         return $tree->getMetadataSum();
     }
 
     public function part2(string $input)
     {
-        $tree = new Node(explode(' ', trim($input)));
+        $tree = new Node(trim($input));
         return $tree->getValue();
     }
 }

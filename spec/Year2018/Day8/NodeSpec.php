@@ -8,17 +8,19 @@ use Prophecy\Argument;
 
 class NodeSpec extends ObjectBehavior
 {
-    function it_calculates_the_metadata_sum()
+    function let()
     {
         $license = '2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2';
-        $this->beConstructedWith(explode(' ', $license));
+        $this->beConstructedWith($license);
+    }
+
+    function it_calculates_the_metadata_sum()
+    {
         $this->getMetadataSum()->shouldReturn(138);
     }
 
     function it_calculates_the_node_value()
     {
-        $license = '2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2';
-        $this->beConstructedWith(explode(' ', $license));
         $this->getValue()->shouldReturn(66);
     }
 }
