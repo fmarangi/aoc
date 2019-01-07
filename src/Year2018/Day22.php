@@ -18,9 +18,9 @@ class Day22 implements Puzzle
     public function getRiskLevel(int $x, int $y, int $depth): int
     {
         $cave = $this->getCave($x, $y, $depth);
-        for ($y = $risk = 0, $maxY = count($cave); $y < $maxY; $y++) {
-            for ($x = 0, $maxX = count($cave[$y]); $x < $maxX; $x++) {
-                $risk += $cave[$y][$x][1];
+        for ($j = $risk = 0; $j <= $y; $j++) {
+            for ($k = 0; $k <= $x; $k++) {
+                $risk += $cave[$j][$k];
             }
         }
         return $risk;
@@ -28,9 +28,9 @@ class Day22 implements Puzzle
 
     private function getCave(int $x, int $y, int $depth): array
     {
-        $cave = [];
-        for ($j = 0; $j <= $x; $j++) {
-            for ($k = 0; $k <= $y; $k++) {
+        $cave = $levels = [];
+        for ($j = 0; $j <= $x + 10; $j++) {
+            for ($k = 0; $k <= $y + 10; $k++) {
                 $index = 0;
                 switch (true) {
                     case ($j === 0 && $k === 0) || ($j === $x && $k === $y):
@@ -45,12 +45,12 @@ class Day22 implements Puzzle
                         break;
 
                     default:
-                        $index = $cave[$k - 1][$j][0] * $cave[$k][$j - 1][0];
+                        $index = $levels[$k - 1][$j] * $levels[$k][$j - 1];
                         break;
                 }
 
-                $cave[$k][$j][0] = ($index + $depth) % 20183;
-                $cave[$k][$j][1] = $cave[$k][$j][0] % 3;
+                $levels[$k][$j] = ($index + $depth) % 20183;
+                $cave[$k][$j]   = $levels[$k][$j] % 3;
             }
         }
         return $cave;
