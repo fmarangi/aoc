@@ -7,12 +7,12 @@ use PhpSpec\ObjectBehavior;
 
 class Day1Spec extends ObjectBehavior
 {
-    public function it_should_be_a_puzzle()
+    function it_is_a_puzzle()
     {
-        $this->shouldImplement(Puzzle::class);
+        $this->shouldHaveType(Puzzle::class);
     }
 
-    public function it_should_calculate_simple_cases()
+    function it_calculates_the_simple_cases()
     {
         $this->captcha('1234')->shouldReturn(0);
         $this->captcha('1122')->shouldReturn(3);
@@ -20,7 +20,7 @@ class Day1Spec extends ObjectBehavior
         $this->captcha('91212129')->shouldReturn(9);
     }
 
-    public function it_should_calculate_with_dynamic_steps()
+    function it_calculates_with_dynamic_steps()
     {
         $this->captchaHalf('1212')->shouldReturn(6);
         $this->captchaHalf('1221')->shouldReturn(0);
@@ -29,7 +29,7 @@ class Day1Spec extends ObjectBehavior
         $this->captchaHalf('12131415')->shouldReturn(4);
     }
 
-    public function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day1.txt');
         $this->part1($input)->shouldReturn(1341);

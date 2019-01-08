@@ -7,15 +7,15 @@ use PhpSpec\ObjectBehavior;
 
 class Day5Spec extends ObjectBehavior
 {
-    private $commands = "0
+    private $commands = '0
 3
 0
 1
--3";
+-3';
 
     function it_is_a_puzzle()
     {
-        $this->shouldImplement(Puzzle::class);
+        $this->shouldHaveType(Puzzle::class);
     }
 
     function it_should_split_commands()
@@ -33,7 +33,7 @@ class Day5Spec extends ObjectBehavior
         $this->exit2([0, 3, 0, 1, -3])->shouldReturn(10);
     }
 
-    public function it_should_solve_the_puzzle()
+    public function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day5.txt');
         $this->part1($input)->shouldReturn(388611);

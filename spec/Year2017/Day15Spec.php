@@ -9,7 +9,7 @@ use PhpSpec\ObjectBehavior;
 
 class Day15Spec extends ObjectBehavior
 {
-    function it_is_initializable()
+    function it_is_a_puzzle()
     {
         $this->shouldImplement(Puzzle::class);
     }

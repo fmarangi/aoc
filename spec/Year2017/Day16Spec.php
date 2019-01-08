@@ -12,33 +12,33 @@ class Day16Spec extends ObjectBehavior
         $this->shouldImplement(Puzzle::class);
     }
 
-    public function it_should_spin_programs()
+    function it_spins_programs()
     {
         $this->move('abcde', 's3')->shouldReturn('cdeab');
         $this->move('abcde', 's1')->shouldReturn('eabcd');
     }
 
-    public function it_should_exchange_programs()
+    function it_exchanges_programs()
     {
         $this->move('eabcd', 'x3/4')->shouldReturn('eabdc');
     }
 
-    public function it_should_swap_partner_programs()
+    function it_swaps_partner_programs()
     {
         $this->move('eabdc', 'pe/b')->shouldReturn('baedc');
     }
 
-    public function it_should_dance()
+    function it_dances()
     {
         $this->dance('abcde', 's1,x3/4,pe/b')->shouldReturn('baedc');
     }
 
-    public function it_should_dance_twice()
+    function it_dances_twice()
     {
         $this->dance('abcde', 's1,x3/4,pe/b', 2)->shouldReturn('ceadb');
     }
 
-    public function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day16.txt');
         $this->part1($input)->shouldReturn('kpfonjglcibaedhm');

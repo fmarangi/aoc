@@ -7,12 +7,12 @@ use PhpSpec\ObjectBehavior;
 
 class Day3Spec extends ObjectBehavior
 {
-    function it_should_be_a_puzzle()
+    function it_is_a_puzzle()
     {
         $this->shouldImplement(Puzzle::class);
     }
 
-    function it_should_calculate_the_correct_distance()
+    function it_calculates_the_correct_distance()
     {
         $this->distance(1)->shouldReturn(0);
         $this->distance(10)->shouldReturn(3);
@@ -23,7 +23,7 @@ class Day3Spec extends ObjectBehavior
         $this->distance(1024)->shouldReturn(31);
     }
 
-    function it_should_calculate_the_grid()
+    function it_calculates_the_grid()
     {
         $this->getGrid(9)->shouldReturn([
             '0:0'   => 1,
@@ -38,7 +38,7 @@ class Day3Spec extends ObjectBehavior
         ]);
     }
 
-    function it_should_calculate_square_values()
+    function it_calculates_square_values()
     {
         $this->getValue(1)->shouldReturn(1);
         $this->getValue(2)->shouldReturn(1);
@@ -52,7 +52,7 @@ class Day3Spec extends ObjectBehavior
         $this->getValue(23)->shouldReturn(806);
     }
 
-    function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day3.txt');
         $this->part1($input)->shouldReturn(438);

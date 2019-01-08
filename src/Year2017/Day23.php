@@ -15,6 +15,19 @@ class Day23 implements Puzzle
 
     public function part2(string $input)
     {
+        for ($b = 109300, $h = 0; $b <= 126300; $b += 17) {
+            if (!$this->isPrime($b)) $h += 1;
+        }
+        return $h;
+    }
+
+    private function isPrime(int $num): bool
+    {
+        if (($num > 2 && $num % 2 === 0) || $num === 1) return false;
+        for ($i = 3, $root = sqrt($num) + 1; $i < $root; $i += 2) {
+            if ($num % $i === 0) return false;
+        }
+        return true;
     }
 
     private function parseInput(string $input): array
@@ -24,14 +37,13 @@ class Day23 implements Puzzle
         }, explode("\n", trim($input)));
     }
 
-    private function runWithRegistries($instructions, &$registries, int $init = 0): int
+    private function runWithRegistries(array $instructions, array $registries): int
     {
         $value = function (string $what) use (&$registries): int {
-            return is_numeric($what) ? $what : ($registries[$what] ?? 0);
+            return $registries[$what] ?? $what;
         };
 
-        $mul = 0;
-        for ($i = $init, $num = count($instructions); $i < $num; $i++) {
+        for ($i = 0, $num = count($instructions), $mul = 0; $i < $num; $i++) {
             list($operation, $which, $qty) = $instructions[$i];
             switch ($operation) {
                 case 'set':

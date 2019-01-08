@@ -16,5 +16,6 @@ class Day23Spec extends ObjectBehavior
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day23.txt');
         $this->part1($input)->shouldReturn(8281);
+        $this->part2($input)->shouldReturn(911);
     }
 }

@@ -10,10 +10,9 @@ class Day13Spec extends ObjectBehavior
     private $input = '0: 3
 1: 2
 4: 4
-6: 4
-';
+6: 4';
 
-    function it_is_initializable()
+    function it_is_a_puzzle()
     {
         $this->shouldImplement(Puzzle::class);
     }

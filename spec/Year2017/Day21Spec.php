@@ -19,22 +19,22 @@ class Day21Spec extends ObjectBehavior
         $this->shouldHaveType(Puzzle::class);
     }
 
-    function it_should_calculate_the_numeric_value()
+    function it_calculates_the_numeric_value()
     {
         $this->getNumericValue(".#.\n..#\n###", "\n")->shouldReturn(143);
     }
 
-    function it_should_rotate_an_image()
+    function it_rotates_an_image()
     {
         $this->rotate(".#.\n..#\n###")->shouldReturn("#..\n#.#\n##.");
     }
 
-    function it_should_flip_an_image()
+    function it_flips_an_image()
     {
         $this->flip(".#.\n..#\n###")->shouldReturn(".#.\n#..\n###");
     }
 
-    function it_should_get_numeric_values_of_a_pattern()
+    function it_gets_the_numeric_values_of_a_pattern()
     {
         $this->getAllValues("..\n.#")->shouldReturn([1, 2, 8, 4]);
         $this->getAllValues("..\n..")->shouldReturn([0]);
@@ -42,13 +42,13 @@ class Day21Spec extends ObjectBehavior
         $this->getAllValues(".#.\n..#\n###")->shouldReturn([143, 167, 302, 107, 482, 458, 233, 428]);
     }
 
-    function it_should_count_the_pixels()
+    function it_counts_the_pixels()
     {
         $this->getPixelCount("..\n.#")->shouldReturn(1);
         $this->getPixelCount(".#.\n..#\n###")->shouldReturn(5);
     }
 
-    function it_should_parse_the_rules()
+    function it_parses_the_rules()
     {
         $this->parseRules($this->rules)->shouldReturn([
             2 => [
@@ -70,7 +70,7 @@ class Day21Spec extends ObjectBehavior
         ]);
     }
 
-    function it_should_divide_the_image()
+    function it_splits_the_image()
     {
         $this->split("#..#\n....\n....\n#..#")->shouldReturn([
             "#.\n..",
@@ -82,7 +82,7 @@ class Day21Spec extends ObjectBehavior
     }
 
 
-    function it_should_join_the_image()
+    function it_joins_the_image()
     {
         $parts = [
             "#.\n..",
@@ -93,13 +93,13 @@ class Day21Spec extends ObjectBehavior
         $this->join($parts)->shouldReturn("#..#\n....\n....\n#..#");
     }
 
-    function it_should_enhance_the_image()
+    function it_enhances_the_image()
     {
         $this->enhance($this->rules, 1)->shouldReturn("#..#\n....\n....\n#..#");
         $this->enhance($this->rules, 2)->shouldReturn("##.##.\n#..#..\n......\n##.##.\n#..#..\n......");
     }
 
-    function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day21.txt');
         $this->part1($input)->shouldReturn(208);
