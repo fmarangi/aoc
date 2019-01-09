@@ -18,8 +18,7 @@ class Day1 implements Puzzle
 
     public function getFloor(string $input): int
     {
-        $input = trim($input);
-        return strlen(str_replace(')', '', $input)) - strlen(str_replace('(', '', $input));
+        return substr_count($input, '(') - substr_count($input, ')');
     }
 
     public function enterBasement(string $input): int
