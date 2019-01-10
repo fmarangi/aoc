@@ -7,6 +7,15 @@ use PhpSpec\ObjectBehavior;
 
 class Day24Spec extends ObjectBehavior
 {
+    private $input = '0/2
+2/2
+2/3
+3/4
+3/5
+0/1
+10/1
+9/10';
+
     function it_is_a_puzzle()
     {
         $this->shouldHaveType(Puzzle::class);
@@ -17,30 +26,14 @@ class Day24Spec extends ObjectBehavior
         $this->getStrength(['0/1', '10/1', '9/10'])->shouldReturn(31);
     }
 
-    function it_get_the_strongest_bridge()
+    function it_gets_the_strongest_bridge()
     {
-        $input = '0/2
-2/2
-2/3
-3/4
-3/5
-0/1
-10/1
-9/10';
-        $this->getStrongestBridge($input)->shouldReturn(['0/1', '10/1', '9/10']);
+        $this->getStrongestBridge($this->input)->shouldReturn(['0/1', '10/1', '9/10']);
     }
 
-    function it_get_the_longest_bridge()
+    function it_gets_the_longest_bridge()
     {
-        $input = '0/2
-2/2
-2/3
-3/4
-3/5
-0/1
-10/1
-9/10';
-        $this->getLongetBrige($input)->shouldReturn(['0/2', '2/2', '2/3', '3/5']);
+        $this->getLongestBrige($this->input)->shouldReturn(['0/2', '2/2', '2/3', '3/5']);
     }
 
     private function it_solves_the_puzzle()

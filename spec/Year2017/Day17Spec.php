@@ -9,10 +9,10 @@ class Day17Spec extends ObjectBehavior
 {
     function it_is_a_puzzle()
     {
-        $this->shouldImplement(Puzzle::class);
+        $this->shouldHaveType(Puzzle::class);
     }
 
-    function it_should_generate_the_sequence()
+    function it_generates_the_sequence()
     {
         $this->spinlock(3, 0)->shouldReturn([0]);
         $this->spinlock(3, 1)->shouldReturn([0, 1]);
@@ -25,12 +25,12 @@ class Day17Spec extends ObjectBehavior
         $this->spinlock(3, 9)->shouldReturn([0, 9, 5, 7, 2, 4, 3, 8, 6, 1]);
     }
 
-    function it_should_get_the_value_after_2017()
+    function it_gets_the_value_after_2017()
     {
         $this->getValueAfter(3, 2017)->shouldReturn(638);
     }
 
-    public function it_should_solve_the_puzzle()
+    function it_should_solve_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day17.txt');
         $this->part1($input)->shouldReturn(600);

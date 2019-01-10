@@ -19,24 +19,24 @@ INPUT;
         $this->shouldImplement(Puzzle::class);
     }
 
-    function it_should_parse_lines_correctly()
+    function it_parses_the_lines_correctly()
     {
         foreach (explode(PHP_EOL, trim($this->input)) as $line) {
             $this->parseLine($line)->shouldHaveCount(3);
         }
     }
 
-    function it_should_find_the_max_value_after_the_process()
+    function it_finds_the_max_value_after_the_process()
     {
         $this->findMaxAfter($this->input)->shouldReturn(1);
     }
 
-    function it_should_find_the_max_value_during_the_process()
+    function it_finds_the_max_value_during_the_process()
     {
         $this->findMaxDuring($this->input)->shouldReturn(10);
     }
 
-    public function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day8.txt');
         $this->part1($input)->shouldReturn(5215);

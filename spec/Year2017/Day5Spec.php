@@ -33,7 +33,7 @@ class Day5Spec extends ObjectBehavior
         $this->exit2([0, 3, 0, 1, -3])->shouldReturn(10);
     }
 
-    public function it_solves_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day5.txt');
         $this->part1($input)->shouldReturn(388611);

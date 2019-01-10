@@ -38,7 +38,7 @@ class Day17 implements Puzzle
         $sequence = [0];
         for ($i = 1, $current = 0; $i <= $repeat; $i++) {
             $current  = 1 + ($current + $steps) % $i;
-            $sequence = array_merge(array_slice($sequence, 0, $current), [$i], array_slice($sequence, $current));
+            array_splice($sequence, $current, 0, [$i]);
         }
         return $sequence;
     }

@@ -33,7 +33,7 @@ class Day10Spec extends ObjectBehavior
         $this->hash('1,2,3')->shouldReturn('3efbe78a8d82f29979031a4aa0b16a9d');
     }
 
-    public function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day10.txt');
         $this->part1($input)->shouldReturn(8536);

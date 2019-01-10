@@ -13,7 +13,7 @@ class Day24 implements Puzzle
 
     public function part2(string $input)
     {
-        return $this->getStrength($this->getLongetBrige($input));
+        return $this->getStrength($this->getLongestBrige($input));
     }
 
     public function getStrength(array $components): int
@@ -28,7 +28,7 @@ class Day24 implements Puzzle
         return $bridges[array_search(max($strength), $strength)];
     }
 
-    public function getLongetBrige(string $input, string $start = '0'): array
+    public function getLongestBrige(string $input, string $start = '0'): array
     {
         $bridges  = $this->getBridges(explode(PHP_EOL, $input), $start);
         $max      = max(array_map('count', $bridges));

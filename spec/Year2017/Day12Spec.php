@@ -17,20 +17,20 @@ class Day12Spec extends ObjectBehavior
 
     function it_is_a_puzzle()
     {
-        $this->shouldImplement(Puzzle::class);
+        $this->shouldHaveType(Puzzle::class);
     }
 
-    function it_should_count_connected_programs()
+    function it_counts_the_connected_programs()
     {
         $this->countConnected($this->input)->shouldReturn(6);
     }
 
-    function it_should_count_connected_groups()
+    function it_counts_the_connected_groups()
     {
         $this->countGroups($this->input)->shouldReturn(2);
     }
 
-    function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day12.txt');
         $this->part1($input)->shouldReturn(283);

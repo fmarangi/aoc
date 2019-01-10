@@ -14,20 +14,20 @@ class Day13Spec extends ObjectBehavior
 
     function it_is_a_puzzle()
     {
-        $this->shouldImplement(Puzzle::class);
+        $this->shouldHaveType(Puzzle::class);
     }
 
-    function it_should_calculate_the_severity()
+    function it_calculates_the_severity()
     {
         $this->getSeverity($this->input)->shouldReturn(24);
     }
 
-    function it_should_calculate_the_delay()
+    function it_calculates_the_delay()
     {
         $this->getDelay($this->input)->shouldReturn(10);
     }
 
-    function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day13.txt');
         $this->part1($input)->shouldReturn(1904);

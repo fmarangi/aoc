@@ -11,10 +11,10 @@ class Day15Spec extends ObjectBehavior
 {
     function it_is_a_puzzle()
     {
-        $this->shouldImplement(Puzzle::class);
+        $this->shouldHaveType(Puzzle::class);
     }
 
-    function it_should_create_the_generators()
+    function it_creates_the_generators()
     {
         $this->getGenerator(Day15::FACTOR_A, 65, 5)->shouldGenerate([
             1092455,
@@ -32,7 +32,7 @@ class Day15Spec extends ObjectBehavior
         ]);
     }
 
-    function it_should_create_the_generators_for_part2()
+    function it_creates_the_generators_for_part2()
     {
         $this->getPart2Generator(Day15::FACTOR_A, 65, 5, 4)->shouldGenerate([
             1352636452,
@@ -50,25 +50,25 @@ class Day15Spec extends ObjectBehavior
         ]);
     }
 
-    function it_should_compare_numbers()
+    function it_compares_the_numbers()
     {
         $this->match(1092455, 430625591)->shouldBe(false);
         $this->match(245556042, 1431495498)->shouldBe(true);
     }
 
-    function it_should_count_matches()
+    function it_counts_the_matches()
     {
         $this->countMatches(65, 8921, 5)->shouldReturn(1);
 //        $this->countMatches(65, 8921, 40000000)->shouldReturn(588);
     }
 
-    function it_should_count_matches_for_part2()
+    function it_counts_the_matches_for_pt2()
     {
         $this->countMatchesPart2(65, 8921, 1055)->shouldReturn(0);
         $this->countMatchesPart2(65, 8921, 1056)->shouldReturn(1);
     }
 
-    function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         return;
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day15.txt');

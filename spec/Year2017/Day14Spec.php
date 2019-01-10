@@ -9,20 +9,20 @@ class Day14Spec extends ObjectBehavior
 {
     function it_is_a_puzzle()
     {
-        $this->shouldImplement(Puzzle::class);
+        $this->shouldHaveType(Puzzle::class);
     }
 
-    function it_should_count_used_squares()
+    function it_counts_the_used_squares()
     {
         $this->getUsedSquares('flqrgnkx')->shouldReturn(8108);
     }
 
-    function it_should_count_the_regions()
+    function it_counts_the_regions()
     {
         $this->getRegions('flqrgnkx')->shouldReturn(1242);
     }
 
-    function it_should_solve_the_puzzle()
+    function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2017/day14.txt');
         $this->part1($input)->shouldReturn(8106);

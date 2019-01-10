@@ -21,22 +21,22 @@ class ParticleSpec extends ObjectBehavior
         $this->shouldHaveType(Particle::class);
     }
 
-    function it_should_calculate_the_distance()
+    function it_calculates_the_distance()
     {
         $this->getDistance()->shouldReturn(3);
     }
 
-    function it_should_get_the_id()
+    function it_gets_the_id()
     {
         $this->getId()->shouldReturn(1);
     }
 
-    function it_should_get_the_position()
+    function it_gets_the_position()
     {
         $this->getPosition()->shouldReturn([3, 0, 0]);
     }
 
-    function it_should_update_the_position()
+    function it_updates_the_position()
     {
         $this->update();
         $this->getDistance()->shouldReturn(4);
