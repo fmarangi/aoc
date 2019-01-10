@@ -53,7 +53,7 @@ class Day17 implements Puzzle
         {
             $codes = str_split(substr(md5($passcode . $path), 0, 4));
             return array_filter($this->getDoors($room), function (int $door) use ($codes): bool {
-                return ord($codes[$door]) > 97;
+                return hexdec($codes[$door]) > 10;
             }, ARRAY_FILTER_USE_KEY);
         };
     }
