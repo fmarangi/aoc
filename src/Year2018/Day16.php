@@ -6,6 +6,9 @@ use Mzentrale\AdventOfCode\Puzzle;
 
 class Day16 implements Puzzle
 {
+    /** @var Day16\Opcodes */
+    private $opcodes;
+
     public function __construct()
     {
         $this->opcodes = new Day16\Opcodes();
