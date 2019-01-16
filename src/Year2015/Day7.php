@@ -13,7 +13,7 @@ class Day7 implements Puzzle
 
     public function part2(string $input)
     {
-        return $this->runInstructions($input, 46065)['a'];
+        return $this->runInstructions($input, $this->part1($input))['a'];
     }
 
     public function runInstructions(string $input, ?int $valueForB = null): array
@@ -66,10 +66,10 @@ class Day7 implements Puzzle
             switch (true) {
                 case strpos($line, 'NOT ') !== false:
                     return sscanf($line, '%s %s -> %s');
-                case preg_match('#^[a-z0-9]+ ->#', $line):
-                    return sscanf($line, '%s -> %s');
+                case preg_match('#^(\w+)+ -> (\w+)#', $line, $match):
+                    return array_slice($match, 1);
                 default:
-                    preg_match('#([a-z0-9]+) (AND|OR|[RL]SHIFT) (\w+) -> (\w+)#', $line, $match);
+                    preg_match('#(\w+) (AND|OR|[RL]SHIFT) (\w+) -> (\w+)#', $line, $match);
                     return array_slice($match, 1);
             }
         }, explode(PHP_EOL, trim($input)));
