@@ -9,8 +9,5 @@
     "psr-4": {
       "Mzentrale\\AdventOfCode\\": "src/"
     }
-  },
-  "scripts": {
-    "phpspec": "phpspec run --format=pretty --"
   }
 }
