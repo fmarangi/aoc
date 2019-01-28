@@ -28,9 +28,8 @@ class Day22 implements Puzzle
             $player->hitPoints -= $pointsLost; // For part 2
             $player->effects($boss);
 
-            foreach ($this->spells($player) as list($spell, $cost)) {
-                if ($spent + $cost > $min || $player->hitPoints <= 0) continue;
-
+            $spells = $this->spells($player, min($player->getMana(), $min - $spent));
+            foreach ($spells as list($spell, $cost)) {
                 $_player = clone $player;
                 $_boss   = clone $boss;
 
@@ -50,7 +49,7 @@ class Day22 implements Puzzle
         return $min;
     }
 
-    private function spells(Wizard $wizard): array
+    private function spells(Wizard $wizard, int $maxCost): array
     {
         $spells = [
             ['Magic Missile', 53],
@@ -60,8 +59,8 @@ class Day22 implements Puzzle
             ['Recharge', 229],
         ];
 
-        return array_filter($spells, function (array $spell) use ($wizard) {
-            return !in_array($spell[0], $wizard->getActiveSpells()) && $wizard->getMana() >= $spell[1];
+        return array_filter($spells, function (array $spell) use ($wizard, $maxCost) {
+            return !in_array($spell[0], $wizard->getActiveSpells()) && $spell[1] < $maxCost;
         });
     }
 
