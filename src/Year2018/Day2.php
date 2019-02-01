@@ -29,16 +29,15 @@ class Day2 implements Puzzle
     public function getChecksum(string $boxIds)
     {
         $boxes        = explode(PHP_EOL, trim($boxIds));
-        $twoLetters   = array_map([$this, 'hasTwoLetters'], $boxes);
-        $threeLetters = array_map([$this, 'hasTreeLetters'], $boxes);
-        return count(array_filter($twoLetters)) * count(array_filter($threeLetters));
+        $twoLetters   = array_filter($boxes, [$this, 'hasTwoLetters']);
+        $threeLetters = array_filter($boxes, [$this, 'hasTreeLetters']);
+        return count($twoLetters) * count($threeLetters);
     }
 
     public function getDifferences(string $a, string $b): int
     {
-        $differences = 0;
-        foreach (str_split($a) as $i => $j) {
-            if ($b{$i} !== $j) $differences++;
+        for ($i = $differences = 0, $len = strlen($a); $i < $len; $i++) {
+            $differences += $a{$i} !== $b{$i} ? 1 : 0;
         }
         return $differences;
     }
@@ -64,10 +63,6 @@ class Day2 implements Puzzle
 
     private function getLetterCount(string $boxId): array
     {
-        $count = [];
-        foreach (str_split($boxId) as $letter) {
-            $count[$letter] = ($count[$letter] ?? 0) + 1;
-        }
-        return $count;
+        return array_count_values(str_split($boxId));
     }
 }

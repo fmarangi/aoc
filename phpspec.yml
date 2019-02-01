@@ -2,7 +2,7 @@ formatter.name: pretty
 stop_on_failure: true
 
 suites:
-  acme_suite:
+  adventofcode:
     namespace: Mzentrale\AdventOfCode
     psr4_prefix: Mzentrale\AdventOfCode
     src_path: "%paths.config%/src"

@@ -12,7 +12,7 @@ class Day11Spec extends ObjectBehavior
         $this->shouldHaveType(Puzzle::class);
     }
 
-    function it_gets_the_fluel_level()
+    function it_gets_the_fuel_level()
     {
         $this->getFuelLevel(3, 5, 8)->shouldReturn(4);
         $this->getFuelLevel(122, 79, 57)->shouldReturn(-5);
