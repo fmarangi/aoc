@@ -17,9 +17,15 @@ class Day22Spec extends ObjectBehavior
         $this->getRiskLevel(10, 10, 510)->shouldReturn(114);
     }
 
+    function it_calculates_the_fastest_way_to_the_target()
+    {
+        $this->getFastestWay(10, 10, 510)->shouldReturn(45);
+    }
+
     function it_solves_the_puzzle()
     {
         $input = file_get_contents(dirname(dirname(__DIR__)) . '/input/year2018/day22.txt');
         $this->part1($input)->shouldReturn(9899);
+        // $this->part2($input)->shouldReturn(1051);
     }
 }
