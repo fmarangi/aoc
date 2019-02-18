@@ -17,7 +17,7 @@ class Program
     private $sent = 0;
 
     /** @var int[] */
-    private $queue;
+    private $queue = [];
 
     public function getSent(): int
     {
