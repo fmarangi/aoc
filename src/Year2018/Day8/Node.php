@@ -10,7 +10,7 @@ class Node
     /** @var array **/
     private $children = [];
 
-    /** @var array **/
+    /** @var string **/
     private $remaining;
 
     public function __construct(string $license)
