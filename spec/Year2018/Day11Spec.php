@@ -20,12 +20,6 @@ class Day11Spec extends ObjectBehavior
         $this->getFuelLevel(101, 153, 71)->shouldReturn(4);
     }
 
-    function it_gets_the_total_power()
-    {
-        $this->getTotalPower(33, 45, 18)->shouldReturn(29);
-        $this->getTotalPower(21, 61, 42)->shouldReturn(30);
-    }
-
     function it_gets_the_largest_total_power()
     {
         $this->getLargestTotalPower(18)->shouldReturn(['33,45', 29]);
