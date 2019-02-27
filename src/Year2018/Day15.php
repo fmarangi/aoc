@@ -6,8 +6,8 @@ use Mzentrale\AdventOfCode\Puzzle;
 
 class Day15 implements Puzzle
 {
-    const HIT_POINTS = 200;
-    const NOT_FOUND  = 99999;
+    private const HIT_POINTS = 200;
+    private const NOT_FOUND  = 99999;
 
     public function part1(string $input)
     {
@@ -36,7 +36,7 @@ class Day15 implements Puzzle
                 if ($target !== self::NOT_FOUND) {
                     $units[$target][2] -= $type === 'E' ? $elfAttackPower : 3;
                     if ($units[$target][2] <= 0) {
-                        if ($type !== 'E' && $elvesWin) throw new \Exception;
+                        if ($type !== 'E' && $elvesWin) return -1;
                         $field{$units[$target][1]} = '.';
                     }
                     continue;
@@ -55,13 +55,13 @@ class Day15 implements Puzzle
 
                 // Attack if in range
                 $units[$i][1] = $nextStep;
-                $field  = $this->move($position, $nextStep, $field);
-                $target = $this->getTarget($next($nextStep), $enemies);
+                $field        = $this->move($position, $nextStep, $field);
+                $target       = $this->getTarget($next($nextStep), $enemies);
                 if ($target === self::NOT_FOUND) continue;
 
                 $units[$target][2] -= $type === 'E' ? $elfAttackPower : 3;
                 if ($units[$target][2] <= 0) {
-                    if ($type !== 'E' && $elvesWin) throw new \Exception;
+                    if ($type !== 'E' && $elvesWin) return -1;
                     $field{$units[$target][1]} = '.';
                 }
             }
@@ -73,15 +73,12 @@ class Day15 implements Puzzle
         return array_sum(array_column($units, 2)) * $rounds;
     }
 
-    public function helpElvesWin(string $input, int $elfAttackPower = 4): int
+    public function helpElvesWin(string $input): int
     {
-        while (true) {
-            try {
-                return $this->getBattleOutCome($input, $elfAttackPower, true);
-            } catch (\Exception $e) {
-                $elfAttackPower += 1;
-            }
+        for ($elfAttackPower = 4, $outcome = -1; $outcome < 0; $elfAttackPower++) {
+            $outcome = $this->getBattleOutCome($input, $elfAttackPower, true);
         }
+        return $outcome;
     }
 
     private function isOver(array $units): int

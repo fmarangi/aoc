@@ -2,9 +2,7 @@
 
 namespace spec\Mzentrale\AdventOfCode\Year2018\Day8;
 
-use Mzentrale\AdventOfCode\Year2018\Day8\Node;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class NodeSpec extends ObjectBehavior
 {
