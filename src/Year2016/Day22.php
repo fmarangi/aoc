@@ -78,7 +78,7 @@ class Day22 implements Puzzle
                             [$x_, $y_] = [$x + $o[0], $y + $o[1]];
                             if (isset($grid[$y_][$x_]) && array_sum($grid[$y_][$x_]) < $grid[$y][$x][0]) {
                                 $maze .= '#';
-                                continue 2;
+                                break 2;
                             }
                         }
                         $maze .= '.';

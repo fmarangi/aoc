@@ -30,14 +30,10 @@ class Day10 implements Puzzle
 
     public function apply(array $list, int $position, int $length): array
     {
-        $sublist = [];
-        for ($i = 0, $count = count($list); $i < $length; $i++) {
-            $sublist[] = $list[($i + $position) % $count];
-        }
-
-        $reverse = array_reverse($sublist);
-        foreach ($reverse as $i => $number) {
-            $list[($i + $position) % $count] = $number;
+        for ($i = 0, $count = count($list); $i < intdiv($length, 2); $i++) {
+            $a = ($position + $i) % $count;
+            $b = ($position + $length - $i - 1) % $count;
+            [$list[$a], $list[$b]] = [$list[$b], $list[$a]];
         }
         return $list;
     }

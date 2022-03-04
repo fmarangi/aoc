@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Mzentrale\AdventOfCode\Year2017\Year2017;
+namespace spec\Mzentrale\AdventOfCode\Year2017;
 
 use Mzentrale\AdventOfCode\Puzzle;
 use PhpSpec\ObjectBehavior;

@@ -1,13 +1,19 @@
 {
+  "name": "fmarangi/adventofcode",
+  "description": "Advent of Code, solved in PHP",
+  "license": "MIT",
   "require": {
-    "ext-json": "^1.5"
+    "ext-json": "*"
   },
   "require-dev": {
-    "phpspec/phpspec": "^5.1"
+    "phpspec/phpspec": "^7.1"
   },
   "autoload": {
     "psr-4": {
       "Mzentrale\\AdventOfCode\\": "src/"
     }
+  },
+  "scripts": {
+    "test": "phpspec run --format=dot"
   }
 }
